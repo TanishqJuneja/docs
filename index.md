@@ -1,4 +1,4 @@
-# Getting Started with Pepipost API
+# Getting Started with Pepipost API (<a href="https://github.com/Pepipost/docs/edit/master/index.md" target="_blank">  Edit </a>)
 
 You can try Pepipost API online with Pepipost Live API console at <a href="https://docs.pepipost.com/console/" target="_blank"> https://docs.pepipost.com/console/ </a>.
 

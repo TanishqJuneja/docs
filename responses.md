@@ -1,4 +1,4 @@
-# Pepipost API Responses
+# Pepipost API Responses (<a href="https://github.com/Pepipost/docs/edit/master/responses.md" target="_blank">  Edit </a>)
 
 Currently, we return HTTP code 200 in all our responses, even in case of errors. Except in case of system error it may return HTTP code 500.
 

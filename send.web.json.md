@@ -158,4 +158,105 @@ message | Its can have only 2 values - "SUCCESS" or "ERROR"
 errorcode | Pepipost API error code. Its value will be - 0 (zero) in case of success. In case of error it will be non-zero integer value.
 errormessage | Error specific error messages. 
 
+## Using PHP
+
+Its recommended to use SDK in order to use the API. You can get Pepipost SDK for PHP by <a href="https://github.com/pepipost/pepipost-sdk-php" target="_blank">  clicking here </a> .
+
+### Basic Example
+
+```php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use PepipostAPIV10Lib\Controllers\Email;
+
+$email = new Email();
+
+$data = array(
+    'api_key'        =>  'yoursecretapikey',
+    'recipients'    =>  array('recipient@example.com'),
+    'email_details' => array(
+        'content'       =>  'this mail is sent via PHP SDK',
+        'from'          =>  'from@example.com',
+        'subject'       =>  'this mail is sent via PHP SDK',
+        'fromname'      =>  'SDK Sender Name ',    
+    )
+);
+
+try {
+    $response = $email->sendJson( $data );
+    if(empty($response->errorcode)){
+        print "Email sent successfully.\n";
+    }
+    else {
+        print "Email sent Failed.\n";
+        print "errormessage(" . $response->errormessage . ") \n";
+        print "errorcode(" . $response->errorcode . ").\n";
+    }
+}
+catch(Exception $e){
+    print 'Call failed due to unhandled exception/error('. $e->getMessage().')'."\n";
+}
+```
+
+### Advance Example
+
+```php
+<?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use PepipostAPIV10Lib\Controllers\Email;
+
+$email = new Email();
+
+$data = array(
+    'api_key'   =>  'yoursecretkey',
+    'recipients'    =>  array('recipient1@example.com','recipient2@example.com'),
+    'email_details' => array(
+        'from'          =>  'from@example.com',
+        'subject'       =>  'Hi [% NAME %], here is your account balance.',
+        'content'       =>  '<p>Hi [%NAME%],</p><p>Your account balance is [% ACCOUNT_BAL %].</p>',
+        'fromname'      =>  'SDK Sender Name ',
+        'tags'          =>  'AccountDeactivation, Verification',
+        'replytoid'     =>  'replyto@example.com',
+    ),
+    'X-APIHEADER' => array('UserID1','UserID2'),
+    'settings' => array(
+        'footer'        =>  true,
+        'clicktrack'    =>  true,
+        'opentrack'     =>  true,
+        'unsubscribe'   =>  true,
+        'bcc'           =>  'bcc@example.com',
+    ),
+    'attributes' => array(
+        'NAME'          => array('NameOfRecipient1','NameOfRecipient2'),
+        'ACCOUNT_BAL'   => array('100','200'),
+    ),    
+    'files' => array(
+        'example_attachment1.txt' => 'This is a test content of the attach text file 1',
+        'example_attachment2.txt' => 'This is a test content of the attach text file 2',
+    ),  
+);
+
+try {
+    $response = $email->sendJson( $data );
+    //var_dump($response);
+    if(empty($response->errorcode)){
+        print "Email sent successfully.\n";
+    }
+    else {
+        print "Email sent Failed.\n";
+        print "errormessage(" . $response->errormessage . ") \n";
+        print "errorcode(" . $response->errorcode . ").\n";
+    }
+}
+catch(Exception $e){
+    print 'Call failed due to unhandled exception/error('. $e->getMessage().')'."\n";
+}
+```
+
+
+
 

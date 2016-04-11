@@ -40,8 +40,10 @@ https://api.pepipost.com/api/
 
 In order to use our API:
 
-* You need sign up for a Pepipost account, login and get the API key.
+* You need <a href="https://app1.pepipost.com/index.php/login/index?page=signup" target="_blank">  sign up </a>  for a <a href="http://www.pepipost.com/" target="_blank"> Pepipost </a> account, login and get the API key.
 * Add & approve your sender domain
+
+
 
 
 

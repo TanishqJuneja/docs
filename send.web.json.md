@@ -1,11 +1,11 @@
 title: Pepipost API Docs v1.0
 ---
 
-## Send Email - JSON (<a href="https://github.com/Pepipost/docs/edit/master/send.web.json.md" target="_blank">  Edit </a>)
+## Send Email - JSON
 
 JSON/Email send – this API can be use to send emails.
 
-## Basic example (<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a>)
+## Basic example
 
 ```
 Host: https://api.pepipost.com
@@ -31,6 +31,8 @@ POST /api/web.send.json HTTP/1.1
 }
 
 ```
+**<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a> to try the above example with our online API console**
+
 
 ### Example Response 
 
@@ -39,7 +41,7 @@ HTTP/1.1 200 OK
 {"message":"SUCCESS","errorcode": "0" ,"errormessage":""}
 ```
 
-## Example with attributes (<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a>)
+## Example with attributes
 
 ### Example of sending content personalized email
 
@@ -63,6 +65,7 @@ POST /api/web.send.json HTTP/1.1
       }
 }
 ```
+**<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a> to try the above example with our online API console**
 
 **Mail received by Mike **
 
@@ -77,7 +80,7 @@ POST /api/web.send.json HTTP/1.1
 ```
 
 
-## Advance example (<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a>)
+## Advance example
 
 ```
 Host: https://api.pepipost.com
@@ -91,40 +94,43 @@ Content-Type: application/json
 POST /api/web.send.json HTTP/1.1
 {
     "api_key":"yourapikey",
-     "email_details":{
-      "fromname":"sender name",
-      "subject":"test email subject",
-      "from":"from@example.com",
-      "replytoid": "replytoid@example.com",
-      "tags": "AccountDeactivation, Verification",
-      "content":"<p>Hi [%NAME%], This is a test email sent using Pepipost JSON/Email API</p>"
+    "email_details":{
+          "fromname":"sender name",
+          "subject":"test email subject",
+          "from":"from@example.com",
+          "replytoid": "replytoid@example.com",
+          "tags": "AccountDeactivation, Verification",
+          "content":"<p>Hi [%NAME%], This is a test email sent using Pepipost JSON/Email API</p>"
       },
-      "X-APIHEADER": ["ID3","ID2"],
+     "X-APIHEADER": ["ID3","ID2"],
      "settings":{
-      "footer":"1",
-      "clicktrack":"1",
-      "opentrack":"1",
-      "unsubscribe":"1",
-      "bcc":"sac@test.com",
-      "attachmentid":"1,3,4",
-      "template":"101",
+          "footer":"1",
+          "clicktrack":"1",
+          "opentrack":"1",
+          "unsubscribe":"1",
+          "bcc":"sac@test.com",
+          "attachmentid":"1,3,4",
+          "template":"101",
      },
      "recipients":["recipient1@example.com","recipient2@example.com"],
-      "attributes":{
-      "NAME":["NameOfFirstRecipient","NameOfSecondRecipient"],
-      "AGE":["20","30"]
+     "attributes":{
+          "NAME":["NameOfFirstRecipient","NameOfSecondRecipient"],
+          "AGE":["20","30"]
       },
       "files": {
-      "attachment_example1.txt": "This is the content of attached text file 1.",
-      "attachment_example2.txt": "This is the content of attached text file 2"
+          "attachment_example1.txt": "VGhpcyBpcyB0aGUgY29udGVudCBvZiBhIHRlc3QgZmlsZS4K",
+          "attachment_example2.txt": "VGhpcyBpcyB0aGUgY29udGVudCBvZiBhIHRlc3QgZmlsZSAyLgo="
       }
 }
 ```
+
+**<a href="https://docs.pepipost.com/console/#!/Email/post_api_web_send_json" target="_blank"> Click here </a> to try the above example with our online API console**
 
 ** NOTES **
 
 * The fields "NAME" and "AGE" are user defined. One can use any alphanumeric attribute name.
 * The fields "attachment_example1.txt" and "attachment_example2.txt" are user defined. One can use any alphanumeric filename.
+* The value of field "files" needs to be encoded in base64 encoding format. You can attach various types of files including pdf, png, etc in the same as shown above. However, the above example uses txt file example becauase the base64 for other file types (like pdf) will be large and make the example unreadable.
 
 ### Example Response
 
@@ -235,8 +241,8 @@ $data = array(
         'ACCOUNT_BAL'   => array('100','200'),
     ),    
     'files' => array(
-        'example_attachment1.txt' => 'This is a test content of the attach text file 1',
-        'example_attachment2.txt' => 'This is a test content of the attach text file 2',
+        'example_attachment1.txt' => base64_encode(trim(file_get_contents('/path/to/file.txt'))),
+        'example_attachment2.pdf' => base64_encode(trim(file_get_contents('/path/to/file.pdf'))),
     ),  
 );
 

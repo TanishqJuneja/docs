@@ -1,14 +1,14 @@
 title: Pepipost API Docs v1.0
 ---
 
-## Send Email - REST
+## Send Email - REST (<a href="https://github.com/Pepipost/docs/edit/master/send.web.rest.md" target="_blank">  Edit </a>)
 
 REST/Email send – this API can be use to send emails.
 
 You can call this api using GET as well POST HTTP method.
 
 
-## Basic Example ( target="_blank"> Click here </a>)
+## Basic Example
 
 Example call for sending email with required parameters
 

@@ -1,7 +1,7 @@
 title: Pepipost API Docs v1.0
 ---
 
-## Send Email - JSON
+## Send Email - JSON (<a href="https://github.com/Pepipost/docs/edit/master/send.web.json.md" target="_blank">  Edit </a>)
 
 JSON/Email send – this API can be use to send emails.
 

@@ -1,14 +1,14 @@
 title: Pepipost API Docs v1.0
 ---
 
-## Send Email - REST <a href="https://github.com/Pepipost/docs/edit/master/send.web.rest.md" target="_blank">  Edit </a>
+## Send Email - REST
 
 REST/Email send – this API can be use to send emails.
 
 You can call this api using GET as well POST HTTP method.
 
 
-## Basic Example (<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a>)
+## Basic Example ( target="_blank"> Click here </a>)
 
 Example call for sending email with required parameters
 
@@ -29,13 +29,16 @@ api_key=yoursecretkey
 &content=YourEmailContent
 &recipients=recipient@example.com
 ```
+
+**<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a> to try the above example with our online API console**
+
 	
 ### Example Response
 ```
 {"message":"SUCCESS","errorcode": "0" ,"errormessage":""}
 ```
 
-## Example with attributes (<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a>)
+## Example with attributes
 
 ### Example of sending content personalized email
 
@@ -54,6 +57,8 @@ api_key=yourapikey
 &ATT_BALANCE=100,200
 ```
 
+**<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a> to try the above example with our online API console**
+
 **NOTE: The "ATT_" is the prefixed, which is required before every attribute name.**
 
 **Mail received by Mike **
@@ -68,11 +73,9 @@ api_key=yourapikey
 <p>Hi Joe, your current balance as on today is 200.</p>
 ```
 
-## Advance Example (<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a>)
+## Advance Example
 
 Example of API call with all the parameters.
-
-<a href="https://docs.pepipost.com/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a> to this example on our Live Pepipost API console.
 
 ```
 HTTP/1.1
@@ -95,6 +98,8 @@ api_key=yoursecretkey
 &ATT_NAME=NameOfRecipient1,NameOfRecipient2
 &ATT_AGE=12,25
 ```
+
+**<a href="https://docs.pepipost.com/console/#!/Email/get_api_web_send_rest" target="_blank"> Click here </a> to try the above example with our online API console**
 	
 ### Example Response
 ```

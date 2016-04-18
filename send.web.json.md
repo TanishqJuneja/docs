@@ -164,9 +164,9 @@ message | Its can have only 2 values - "SUCCESS" or "ERROR"
 errorcode | Pepipost API error code. Its value will be - 0 (zero) in case of success. In case of error it will be non-zero integer value.
 errormessage | Error specific error messages. 
 
-## Using PHP
+## Integrating with PHP
 
-Its recommended to use SDK in order to use the API. You can get Pepipost SDK for PHP by <a href="https://github.com/pepipost/pepipost-sdk-php" target="_blank">  clicking here </a> .
+Its recommended to use Peipost SDK for PHP in order to integrate Pepipost services with applications written in PHP. You can get Pepipost SDK for PHP by <a href="https://github.com/pepipost/pepipost-sdk-php" target="_blank">  clicking here </a> .
 
 ### Basic Example
 
@@ -264,5 +264,31 @@ catch(Exception $e){
 ```
 
 
+## Integrating with Python
 
+Its recommended to use Peipost SDK for Python in order to integrate Pepipost services with applications written in Python. You can get Pepipost SDK for Python by <a href="https://github.com/pepipost/pepipost-sdk-python" target="_blank">  clicking here </a> .
 
+### Basic Example
+
+```python
+from PepipostAPIV10Lib.Controllers.Email import *
+import json
+
+controller = Email()
+
+#data = ()
+data = { 
+    'api_key' : 'yoursecretapikey',
+    'recipients' : ['recipient1@example.com','recipient2@example.com'],
+    'email_details' : { 
+        'fromname' : 'sender name',
+        'subject' : 'test email subject sent using Pepipost SDK - Python',
+        'from' : 'from@example.com',
+        'content' : '<p>This is a test email sent using Pepipost JSON/Email Python SDK</p>'
+    }   
+}
+
+response = controller.send(data)
+
+print response
+```

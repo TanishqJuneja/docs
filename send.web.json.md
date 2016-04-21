@@ -99,9 +99,9 @@ POST /api/web.send.json HTTP/1.1
           "subject":"test email subject",
           "from":"from@example.com",
           "replytoid": "replytoid@example.com",
-          "tags": "AccountDeactivation, Verification",
           "content":"<p>Hi [%NAME%], This is a test email sent using Pepipost JSON/Email API</p>"
       },
+     "tags": "AccountDeactivation, Verification", 
      "X-APIHEADER": ["ID3","ID2"],
      "settings":{
           "footer":"1",
@@ -225,9 +225,9 @@ $data = array(
         'subject'       =>  'Hi [% NAME %], here is your account balance.',
         'content'       =>  '<p>Hi [%NAME%],</p><p>Your account balance is [% ACCOUNT_BAL %].</p>',
         'fromname'      =>  'SDK Sender Name ',
-        'tags'          =>  'AccountDeactivation, Verification',
         'replytoid'     =>  'replyto@example.com',
     ),
+    'tags'          	=>  'AccountDeactivation, Verification',
     'X-APIHEADER' => array('UserID1','UserID2'),
     'settings' => array(
         'footer'        =>  true,
